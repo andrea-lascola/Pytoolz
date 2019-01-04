@@ -11,6 +11,4 @@ jobs:
       script:
         - make lint
         - make build
-    - stage: deploy
-      script:
         - make deploy
