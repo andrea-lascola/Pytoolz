@@ -14,9 +14,5 @@ lint:
 upload:
 		twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
 
-all:
-		make install
-		make lint
-		make build
-		make documentation
-		make upload
+deploy:
+		twine upload --repository-url https://upload.pypi.org/legacy/ dist/* -p ${PYPI_PWD} -u {PYPI_USER}
