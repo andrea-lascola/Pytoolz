@@ -3,6 +3,14 @@
 Module containing some python utilities/abstractions
 python >= 3.7 compatible
 
+## Prerequisites
+    python >= 3.7
+
+## Installing
+    pip install Pytoolz
+
+## Sections
+
 * [Functional](#functional) λ
 * [Data Structures](#data-structures) 📂
 * [Cache](#cache) 🚀
@@ -11,7 +19,6 @@ python >= 3.7 compatible
 * [Multiprocess](#multiprocess) 👯
 * [Serialization](#serialization) 🤖
 
-## Sections
 #### Functional
 
 A set of utilities oriented to functional programming.
@@ -182,3 +189,8 @@ if __name__ == "__main__":
 #### Logs
 **log decorators**
     - multiple backends
+
+
+## Authors
+
+* **Andrea La Scola** - *Initial work* - [PurpleBooth](https://github.com/andrea-lascola)
