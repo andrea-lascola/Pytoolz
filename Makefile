@@ -15,4 +15,4 @@ upload:
 		twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
 
 deploy:
-		twine upload --repository-url https://upload.pypi.org/legacy/ dist/* -p ${PYPI_PWD} -u {PYPI_USER}
+		twine upload -p ${PYPI_PWD} -u ${PYPI_USER} --repository-url https://upload.pypi.org/legacy/ dist/*
