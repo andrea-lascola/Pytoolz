@@ -19,7 +19,6 @@ A set of utilities oriented to functional programming.
 ##### compose(f1: Callable, f2: Callable) -> Callable
 Compose two functions: return the fn composition of the two
 
-Basic Usage:
 ```python
 from pytoolz.functional import compose
 
@@ -33,7 +32,6 @@ if __name__ == "__main__":
 ##### pipe(functions: List[Callable], obj)
 Recursively apply a list of morphism to an input value
 
-Basic Usage:
 ```python
 from pytoolz.functional import pipe
 
@@ -46,8 +44,7 @@ if __name__ == "__main__":
 
 ##### flat_map(fn: Callable, collection: Iterable)
 Apply the input function to every element in iterable and flatten the result list
-
-Basic Usage:
+s
 ```python
 from pytoolz.functional import flat_map
 
@@ -61,7 +58,6 @@ if __name__ == "__main__":
 ##### iflat_map(fn: Callable, collection: Iterable)
 Apply the input function to every element in iterable and flatten the result list **lazily**
 
-Basic Usage:
 ```python
 from pytoolz.functional import iflat_map
 
@@ -76,7 +72,6 @@ if __name__ == "__main__":
 ##### for_each(fn: Callable, collection: Iterable)
 Create side effect applying the input function for every element in iterable
 
-Basic Usage:
 ```python
 from pytoolz.functional import iflat_map
 
@@ -92,7 +87,6 @@ if __name__ == "__main__":
 ##### Stream(iterable: Iterable) -> Stream
 [Experiment] Emulate the Java Stream API to create pipelines of transformations unsing function composition
 
-Basic Usage:
 ```python
 from pytoolz.functional import Stream
 
@@ -126,7 +120,6 @@ if __name__ == "__main__":
 Serialization and deSerialization of objects:
 different engine are built-in: Json/Pickle/Dict
 
-Basic Usage:
 ```python
 from pytoolz.serialization import Dict, Json, Pickle
 
@@ -147,7 +140,6 @@ Utilities related to data structures (missing data structures or customization o
 
 ##### LinkedList 
 
-Basic Usage:
 ```python
 from pytooolz.ds import LinkedList, Node
 
