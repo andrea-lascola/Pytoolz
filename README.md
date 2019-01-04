@@ -7,7 +7,7 @@ python >= 3.7 compatible
     python >= 3.7
 
 ## Installing
-    pip install Pytoolz
+    pip install pytoolz
 
 ## Sections
 

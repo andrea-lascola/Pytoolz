@@ -2,6 +2,7 @@ documentation:
 		cd docs && make html
 
 build:
+		rm -f dist/*
 		python setup.py sdist
 
 install:
@@ -10,8 +11,12 @@ install:
 lint:
 		flake8 --ignore=F401,F403,F811,F84,W,E1,E2,E3,E4,E5,E6,E7,E8 pytoolz
 
+upload:
+		twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
+
 all:
 		make install
 		make lint
 		make build
 		make documentation
+		make upload

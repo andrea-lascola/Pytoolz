@@ -22,11 +22,8 @@ Indices and tables
 Test
 ==================
 
-
-.. automodule:: pytoolz
-   :members:
-
 ASD
 ==================
 
+.. module:: pytoolz
 
