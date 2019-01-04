@@ -1,6 +1,10 @@
 language: python
-python:
-    - 3.7
 
-install: make install
-lint: make lint
+install: "make install"
+
+jobs:
+  include:
+    - stage: lint
+      script:
+        - make lint
+      python: '3.7'
