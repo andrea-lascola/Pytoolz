@@ -8,3 +8,6 @@ jobs:
     - stage: lint
       script:
         - make lint
+    - stage: build
+      script:
+        - make build
