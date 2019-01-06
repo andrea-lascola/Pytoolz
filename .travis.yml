@@ -1,14 +1,16 @@
 language: python
 python: '3.6'
 
-install: 
+install:
   - make install
   - pip install twine
 
-jobs:
-  include:
-    - stage: build
-      script:
-        - make lint
-        - make build
-        - make deploy
+script:
+    - make lint
+    - make build
+
+deploy:
+  provider: script
+  script: make deploy
+  on:
+    branch: master

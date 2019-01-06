@@ -34,6 +34,10 @@ class LinkedList:
     def __repr__(self):
         return f"LinkedList(head={self.head})"
 
+    # TODO
+    # @classmethod -> from_list
+    # __iter__ -> iterate
+
 
 if __name__ == "__main__":
     ll = LinkedList()
