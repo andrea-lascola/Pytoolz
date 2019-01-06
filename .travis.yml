@@ -6,10 +6,11 @@ install:
   - pip install twine
 
 script:
-    - make lint
-    - make build
+  - make lint
+  - make build
 
 deploy:
+  skip_cleanup: true
   provider: script
   script: make deploy
   on:
