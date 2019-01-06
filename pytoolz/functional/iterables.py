@@ -4,6 +4,8 @@ from typing import Callable, Iterable, List
 
 from pytoolz.functional.pipe import compose
 
+__all__ = ["flat_map", "iflat_map", "for_each", "Stream"]
+
 
 def flat_map(fn: Callable, collection: Iterable):
     """

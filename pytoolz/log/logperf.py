@@ -1,6 +1,8 @@
 import datetime
 from contextlib import contextmanager
 
+__all__ = ["log_perf_ctx", "log_perf"]
+
 
 def _log_perf(start, end, msg):
     """

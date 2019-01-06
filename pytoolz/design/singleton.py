@@ -1,3 +1,6 @@
+__all__ = ["singleton", ]
+
+
 def singleton(class_):
     """
     A Simple singleton decorator for classes

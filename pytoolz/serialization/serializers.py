@@ -6,6 +6,8 @@ try:
 except ImportError:
     import json
 
+__all__ = ["BaseSerializer", "Json", "Dict", "Pickle"]
+
 
 class BaseSerializer:
     __metaclass__ = abc.ABCMeta

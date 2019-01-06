@@ -1,5 +1,7 @@
 from typing import Callable, List
 
+__all__ = ["compose", "pipe"]
+
 
 def compose(f1: Callable, f2: Callable) -> Callable:
     """

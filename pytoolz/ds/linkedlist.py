@@ -1,3 +1,6 @@
+__all__ = ["Node", "LinkedList"]
+
+
 class Node:
     """A LinkedList Node"""
     next = None

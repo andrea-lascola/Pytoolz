@@ -1,10 +1,12 @@
 import abc
 import functools
-from abc import ABCMeta
+
 from typing import Callable
 
+__all__ = ["CacheEngine", "key_fn", "memoize"]
 
-class CacheEngine(metaclass=ABCMeta):
+
+class CacheEngine(metaclass=abc.ABCMeta):
     """
     Interface used to define Cache backends
     #TODO define different backends : Redis/MC/in memory..

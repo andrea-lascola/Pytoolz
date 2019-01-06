@@ -4,6 +4,8 @@ import traceback
 from functools import wraps
 from multiprocessing import Process, Queue
 
+__all__ = ["processify", ]
+
 
 def processify(func):
     """
@@ -54,5 +56,6 @@ if __name__ == "__main__":
     @processify
     def test():
         print(os.getpid())
+
 
     test()

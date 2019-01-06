@@ -1,5 +1,3 @@
-import abc
-
 
 class Subject:
     pass
