@@ -13,7 +13,7 @@ except FileNotFoundError:
 
 setup(
     name='pytoolz',
-    version='0.1.4.dev0',
+    version='0.1.4',
     packages=find_packages(),
     author="Andrea La Scola",
     author_email="andrealascola@gmail.com",
