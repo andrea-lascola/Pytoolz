@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/andrea-lascola/Pytoolz.svg?branch=master)](https://travis-ci.com/andrea-lascola/Pytoolz)
+[![PyPI version](https://badge.fury.io/py/pytoolz.svg)](https://badge.fury.io/py/pytoolz)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2441/badge)](https://bestpractices.coreinfrastructure.org/projects/2441)
 
 # Pytoolz 🚀
