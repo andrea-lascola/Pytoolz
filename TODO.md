@@ -1,11 +1,11 @@
 
-**trait operator** (?)
+- **trait operator** (?)
 
-**catch exception decorator** (?)
+- cache **decorator**
+    - LRU
+    - Redis
+    - memcache
+    - file
 
-https://pypi.org/project/pipe/
 
-#### Multiprocess
-**multiprocessing Pool context** (?)
-
-cache **decorator**
+ref : https://pypi.org/project/pipe/

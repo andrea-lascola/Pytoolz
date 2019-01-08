@@ -67,6 +67,8 @@ class Stream:
     (6, 9)
     >>> Stream(["a","b","c"]).map(lambda x: x+"a").to_set() == {'aa', 'ba', 'ca'}
     True
+    >>> Stream(["a","b","c"]).map(lambda x: x+"a").take(2).to_set() == {'aa', 'ba'}
+    True
     >>> Stream([1, 4, 3])\
         .map(lambda x: x + 3)\
         .map(lambda x: x * x)\
@@ -122,11 +124,22 @@ class Stream:
     def for_each(self, fn: Callable) -> None:
         self.processor = compose(partial(for_each, fn), self.processor)
 
-    def sum(self) -> 'Stream':
-        self.processor = compose(partial(sum), self.processor)
+    def take(self, limit: int) -> 'Stream':
+        def fn(collection):
+            for index, element in enumerate(collection):
+                if index >= limit:
+                    break
+                yield element
+
+        self.processor = compose(fn, self.processor)
         return self
 
     # Collectors
+
+    def sum(self) -> 'Stream':
+        self.processor = compose(sum, self.processor)
+        return self
+
     def to_list(self) -> List:
         return self._collect(list)
 
@@ -150,7 +163,6 @@ class Stream:
 
     def to(self, fn: Callable):
         return self._collect(fn)
-
 
 if __name__ == "__main__":
     import doctest
