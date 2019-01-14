@@ -5,7 +5,7 @@
     - LRU
     - Redis
     - memcache
-    - file
+    - diskcache
 
 
 ref : https://pypi.org/project/pipe/

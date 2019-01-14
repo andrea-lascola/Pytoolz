@@ -176,6 +176,26 @@ ex:
 * LRU in-memory
 * Filesystem
 
+```python
+from pytooolz.cache import memoize # memoize decorator
+from pytooolz.cache import FileEngine # Disk cache engine
+from pytooolz.cache import InMemoryEngine # LRU in memory engine
+from pytooolz.cache import MemcachedEngine # Memcache engine
+from pytooolz.cache import RedisEngine # Redis engine
+
+if __name__ == "__main__":
+    @memoize(InMemoryEngine(limit=10, expiration=10))
+    def fn(*args):
+        return args
+
+
+    fn(1, 2, 3, 4, 5) # fn evaluated
+    fn(1, 2, 3, 4, 5) # got from cache
+    fn(1, 2, 3, 4, 5) # got from cache
+    fn(1, 2, 3, 4, 5) # got from cache
+```
+
+
 #### Design
 Utilities related to application design
 **Singleton decorator** - Examples:

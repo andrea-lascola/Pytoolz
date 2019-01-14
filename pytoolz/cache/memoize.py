@@ -1,9 +1,12 @@
 import abc
 import functools
+import os
 
 from typing import Callable
 
 __all__ = ["CacheEngine", "key_fn", "memoize"]
+
+
 
 
 class CacheEngine(metaclass=abc.ABCMeta):
@@ -75,15 +78,23 @@ class InMemoryEngine(CacheEngine):
 
 
 class FileEngine(CacheEngine):
-    # TODO implement
-    def __init__(self):
+
+    def __init__(self, path='/tmp', tag=None):
+        if not all([
+            os.path.exists(path),
+            os.path.isdir(path)
+        ]):
+            raise Exception(f"Cannot create cache files in this path: f{path}")
+
         import diskcache as dc
+        self.client = dc.Cache(directory=path)
+        self.tag = tag
 
     def get(self, key):
-        return None
+        return self.client.get(key, tag=self.tag)
 
     def set(self, key, value, expiry):
-        return None
+        self.client.set(key, value, expiry, tag=self.tag)
 
 
 def key_fn(func, args, kwargs):
@@ -94,11 +105,20 @@ def key_fn(func, args, kwargs):
     :param kwargs: function kwargs
     :return: cache key string
     """
-    sep = "||"
-    return f"{func.__name__}{sep}PARAMS{sep}{sep.join(args)}".replace(' ', '')
+    group_sep = "||"
+    args_sep = ","
+
+    keyparts = (
+        f"{func.__name__},"
+        f"PARAMS",
+        f"{args_sep.join([str(x) for x in args])}"
+    )
+    key = f"{group_sep}".join(keyparts).replace(' ', '')
+
+    return key
 
 
-def memoize(cache: CacheEngine, key_func: Callable = key_fn, expiry: int = 10):
+def memoize(cache: CacheEngine, key_func: Callable = key_fn, expiry: int = None):
     """
     Cache Decorator used to store decorated function result.
     It produces side effect calling get/set method of the cache engine
@@ -130,3 +150,18 @@ def memoize(cache: CacheEngine, key_func: Callable = key_fn, expiry: int = 10):
         return _inner
 
     return decorator
+
+
+if __name__ == "__main__":
+    file_engine = FileEngine(tag="dam")
+
+
+    @memoize(InMemoryEngine(limit=10, expiration=10))
+    def fn(*args):
+        return args
+
+
+    fn(1, 2, 3, 4, 5)
+    fn(1, 2, 3, 4, 5)
+    fn(1, 2, 3, 4, 5)
+    fn(1, 2, 3, 4, 5)
