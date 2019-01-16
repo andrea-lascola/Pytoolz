@@ -210,6 +210,44 @@ if __name__ == "__main__":
     assert id(MyClass()) == id(MyClass())
 ```
 
+**Traits** 
+Attach a specific trait to an instance.
+This should enable polimorphism using composition instead of classic inheritance
+
+To use this feature:
+* decorate your class with ```@extendable``` decorator
+* implement your custom class that implements ```Trait``` interface
+* choose one (or more) traits during the class init using ```.with_trait(...)```
+
+Example:
+ ```python
+ from pytooolz.design import Trait
+ from pytooolz.design import extendable
+ 
+if __name__ == "__main__":
+    class UserRenderHtml(Trait):
+        def render(self):
+            print("""
+                <h1>{0!s}</h1>
+                <p>{1!s}</p>
+            """.format(self.name, self.surname))
+
+
+    class UserRenderText(Trait):
+        def render(self):
+            print(self.name, self.surname)
+
+
+    @extendable
+    class User:
+        def __init__(self, name, surname):
+            self.name = name
+            self.surname = surname
+
+    usr = User("Andrea", "La Scola").with_trait(UserRenderHtml)
+    print(usr.render())
+ ```
+
 #### Logs
 **log decorators**
     - multiple backends
